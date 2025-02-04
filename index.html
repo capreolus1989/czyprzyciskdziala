@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test przycisku</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+        #tekst1 {
+            font-size: 16px;
+        }
+        #tekst2 {
+            font-size: 48px; /* 3 razy większa czcionka */
+        }
+        #loading {
+            display: none;
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="tekst1">czy przycisk działa?</div>
+    <div id="tekst2">nie, nie działa</div>
+    <div id="loading">⏳</div>
+
+    <button onclick="sprawdzPrzycisk()">sprawdź, czy działa przycisk</button>
+
+    <script>
+        function sprawdzPrzycisk() {
+            // Ukryj tekst i pokazujemy ikonę ładowania
+            document.getElementById('tekst2').style.display = 'none';
+            document.getElementById('loading').style.display = 'inline-block';
+
+            // Po 3 sekundach przywróć tekst
+            setTimeout(function() {
+                document.getElementById('tekst2').style.display = 'block';
+                document.getElementById('loading').style.display = 'none';
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
